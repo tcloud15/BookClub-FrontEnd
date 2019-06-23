@@ -1,0 +1,11 @@
+
+<mat-toolbar color="primary">
+  <span><a href="/Home"><img src="../assets/logo.png" alt="BookClub" style="width:125px;height:60px;border:0;"></a></span>
+  <span class="ex"></span>
+  <span><button mat-button routerLink="/Search">Search</button></span>
+  <span class="ex1"></span>
+  <span><button mat-button (click)="check()">Home</button></span>
+</mat-toolbar>
+<div>
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,75 @@
+<div>
+  <br>
+  <mat-card>
+    <section class="mat-typography">
+      <h3>Register New Member</h3>
+    </section>
+    <mat-divider></mat-divider>
+    <br>
+    <form [formGroup]="registerForm" class="register-form">
+      <br>
+      <mat-form-field class="field-full-width">
+        <input matInput placeholder="Username" formControlName="username" #username>
+        <mat-error *ngIf="registerForm.controls['username'].errors?.required">
+          Username is
+          <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="field-full-width">
+        <input matInput placeholder="Email" formControlName="email" #email>
+        <mat-error *ngIf="registerForm.controls['email'].errors?.required">
+          Email is
+          <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="field-full-width">
+        <mat-label>Major</mat-label>
+        <!-- <input matInput placeholder="Major in school" formControlName="major" #major> -->
+        <select matNativeControl formControlName="major" #major>
+          <option value="Anthropology">Anthropology</option>
+          <option value="Art + Design">Art + Design</option>
+          <option value="Biology">Biology</option>
+          <option value="Business">Business</option>
+          <option value="Chemistry">Chemistry</option>
+          <option value="Communication">Communication</option>
+          <option value="Computer Science">Computer Science</option>
+          <option value="Economics">Economics</option>
+          <option value="French">French</option>
+          <option value="English">English</option>
+          <option value="Education">Education</option>
+          <option value="Spanish">Spanish</option>
+          <option value="German">German</option>
+          <option value="Global Studies">Global Studies</option>
+          <option value="History">History</option>
+          <option value="Kinesiology">Kinesiology</option>
+          <option value="Math">Math</option>
+          <option value="Music">Music</option>
+          <option value="Physics">Physics</option>
+          <option value="Nursing">Nursing</option>
+          <option value="Philosophy">Philosophy</option>
+          <option value="Psychology">Psychology</option>
+          <option value="Religion">Religion</option>
+          <option value="Theatre">Theatre</option>
+        </select>
+      </mat-form-field>
+      <mat-form-field class="field-full-width">
+        <input matInput placeholder="Name" formControlName="name" #name>
+      </mat-form-field>
+      <mat-form-field class="field-full-width">
+        <input matInput placeholder="Phone" formControlName="phone" #phone>
+      </mat-form-field>
+      <mat-form-field class="field-full-width">
+        <input type="password" matInput placeholder="Password" formControlName="password" #password>
+        <mat-error *ngIf="registerForm.controls['password'].errors?.required">
+          Password is
+          <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-divider></mat-divider>
+      <br>
+      <br>
+      <button mat-button type="button" [disabled]="registerForm.pristine || registerForm.invalid" (click)="register(username.value, email.value, major.value, name.value, phone.value, password.value)">
+        Register</button>
+    </form>
+  </mat-card>
+</div>
